@@ -1,5 +1,6 @@
 import FightModel from "./model.js";
 import FightView from "./view.js";
+import { RoundView } from "./roundView.js";
 
 const parent = document.querySelector('.parent');
 
@@ -26,3 +27,5 @@ const player2 = {
     
 const model = new FightModel(player1, player2);
 const view = new FightView(parent, model);
+const log = document.querySelector('.middle-row');
+const roundView = new RoundView(log, model);

@@ -1,26 +1,28 @@
 body{
     background-image: url("../imgs/bg.jpg");
-    background-size: cover;
+
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
 }
 
 .container{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
 
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: 65rem;
-    height: 40rem;
+    height: 30rem;
 }
 
 .stats-div{
     display: flex;
     flex-direction: row;
+    align-items: center;
     background-color: rgba(240, 248, 255, 0.486);
 
     border: none;
@@ -29,27 +31,67 @@ body{
     height: 8rem;
 }
 
-.stats{
-    width: 21rem;
+.top{
+    width: 19rem;
+    text-align: center;
+}
+
+.round{
+    font-size: 1.5rem;
+
+}
+
+.title{
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    font-size: 1.5rem;
 }
 
 .game-div{
     display: flex;
     flex-direction: row;
 
-    height: 27rem;
+    height: 21rem;
 }
 
 .game{
-    width: 21rem;
+    width: 19rem;
 }
 
-.new-round{
+/* .p1-div{
+    background-image: url("../imgs/girl-fighter.png");
+} */
+
+.update{
+    text-align: center;
+    overflow: auto;
+
+    height: 15rem;
+    background-color: rgba(240, 248, 255, 0.486);
+}
+
+.update::-webkit-scrollbar {
+    width: 10px;
+}
+
+.update::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.7); 
+    border-radius: 10px;
+}
+
+.update::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,1); 
+}
+
+.buttonDiv{
     position: absolute;
     top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
 
+.new-round{
     height: 2.5rem;
     width: 7rem;
     font-size: 1rem;
@@ -63,4 +105,31 @@ body{
 
 .new-round:hover{
     cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px){
+    .container{
+        height: 28rem;
+    }
+
+    .stats-div{
+        height: 7rem;
+    }
+
+    .top{
+        width: 14rem;
+        text-align: center;
+    }
+
+    .game-div{
+        height: 20rem;
+    }
+
+    .game{
+        width: 14rem;
+    }
+
+    .new-round{
+        width: 6rem;
+    }
 }
