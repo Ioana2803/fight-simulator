@@ -16,22 +16,20 @@ export class RoundView{
     }
 
     update(roundInfo){
-        const currentText = this.updateDiv.innerText;
-
         console.log(roundInfo);
         
         const updateText = `Round: ${roundInfo.round}
-                ======================
-                First attack:
-                ${roundInfo.roundLog.firstAttack} 
-                ${roundInfo.roundLog.firstDefend}
+        First attack:
+        ${roundInfo.roundLog.firstAttack} 
+        ${roundInfo.roundLog.firstDefend}
+        
+        Second attack:
+        ${roundInfo.roundLog.secondAttack}
+        ${roundInfo.roundLog.secondDefend}
 
-                Second attack:
-                ${roundInfo.roundLog.secondAttack}
-                ${roundInfo.roundLog.secondDefend}
-                ======================
-                `;
+        `;
 
-        this.updateDiv.innerText = currentText + updateText;
+        this.updateDiv.innerText += roundInfo.roundLog.firstAttack? updateText: '';
+        this.updateDiv.scrollTop = this.updateDiv.scrollHeight;
     }
 }

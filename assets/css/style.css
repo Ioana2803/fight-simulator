@@ -58,16 +58,31 @@ body{
     width: 19rem;
 }
 
-/* .p1-div{
-    background-image: url("../imgs/girl-fighter.png");
-} */
+.p1-div{
+    background-image: url("../imgs/tekken-girl.png");
+    background-repeat: no-repeat;
+    background-size: 16rem 18rem;
+    background-position: center;
+}
+
+ .p2-div{
+    background-image: url("../imgs/tekken.png");
+    background-repeat: no-repeat;
+    background-size: 19rem 19rem;
+    background-position: center;
+ }
 
 .update{
     text-align: center;
     overflow: auto;
 
     height: 15rem;
+
     background-color: rgba(240, 248, 255, 0.486);
+    border: none;
+    border-radius: 10px;
+    transition: opacity 1s;
+    opacity: 0.5;
 }
 
 .update::-webkit-scrollbar {
@@ -82,6 +97,12 @@ body{
 .update::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 8px rgba(0,0,0,1); 
+    cursor: pointer;
+}
+
+.update:hover{
+    transition: opacity 1s;
+    opacity: 1;
 }
 
 .buttonDiv{
@@ -105,6 +126,11 @@ body{
 
 .new-round:hover{
     cursor: pointer;
+}
+
+.new-round:disabled{
+    background-color: rgb(153, 147, 147);
+    color: rgb(0, 0, 0);
 }
 
 @media only screen and (max-width: 1200px){

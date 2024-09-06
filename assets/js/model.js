@@ -32,7 +32,7 @@ export default class FightModel{
         }
 
         // check rounds
-        if (this.rounds > this.maxRounds) {
+        if (this.rounds == this.maxRounds) {
             console.error("The rounds are over");
             
             return false;
@@ -115,6 +115,7 @@ export default class FightModel{
         this.observers.push(newObserver);
         newObserver.update({
             stats: this.gStatus,
+            round: this.rounds,
             roundLog: this.roundLog
         });
     }
