@@ -1,3 +1,6 @@
+import { RoundView } from "./roundView.js";
+import { hBarView } from "./healthBarView.js";
+
 export default class FightView{
     constructor(parentDOMElement, fightModel){
         this.parent = parentDOMElement;
@@ -64,7 +67,7 @@ export default class FightView{
 
         // middle row div
         this.middleRow = document.createElement('div');
-        this.middleRow.classList.add('game', 'middle-row');
+        this.middleRow.classList.add('game');
         this.gameDiv.append(this.middleRow);
         // btn div
         this.btnDiv = document.createElement('div');
@@ -81,6 +84,9 @@ export default class FightView{
         this.p2Div = document.createElement('div');
         this.p2Div.classList.add('p2-div', 'game');
         this.gameDiv.append(this.p2Div);
+
+        const roundView = new RoundView(this.middleRow, this.model);
+        const healthBarView = new hBarView(this.container, this.model);
     }
 
     update(roundInfo){

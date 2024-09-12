@@ -48,12 +48,13 @@ export default class FightModel{
 
         let attackData = {
             attacker: `${player1.name} attacks with ${p1Attack} and ${player2.name} defends with ${p2Defense}`,
-            deffender: `${player2.name} remains with ${player2.stats.hp} hp from ${player2.stats.maxHp}`
+            deffender: `${player2.name} remains with ${player2.stats.hp} hp from ${player2.stats.maxHp}`,
+            remainingHp: player2.stats.hp
         }
 
-        console.log('');
-        console.log(`${player1.name} attacks with ${p1Attack} and ${player2.name} defends with ${p2Defense}`);
-        console.log(`${player2.name} remains with ${player2.stats.hp} hp from ${player2.stats.maxHp}`);
+        // console.log('');
+        // console.log(`${player1.name} attacks with ${p1Attack} and ${player2.name} defends with ${p2Defense}`);
+        // console.log(`${player2.name} remains with ${player2.stats.hp} hp from ${player2.stats.maxHp}`);
 
         return attackData;
     }
@@ -63,18 +64,10 @@ export default class FightModel{
             return;
         }
 
-        // console.log(`===== Round ${this.rounds} =====`);
-        
-        // console.log("initial stats");
-        // console.log(`${this.p1.name} => ${this.p1.stats.hp} hp`);
-        // console.log(`${this.p2.name} => ${this.p2.stats.hp} hp`);
-
-
         // determine initiative
         const p1Initiative = Math.floor(Math.random() * this.p1.stats.initiative + 1);
         const p2Initiative = Math.floor(Math.random() * this.p2.stats.initiative + 1);
         const[firstAttacker, secondAttacker] = p1Initiative > p2Initiative ? [this.p1, this.p2] : [this.p2, this.p1];
-        // console.log(`${this.p1.name} initiative ${p1Initiative}     ${this.p2.name} initiative ${p2Initiative}`);
 
         // collecting initiative data
         let newRoundData = {
@@ -101,12 +94,12 @@ export default class FightModel{
             newRData: newRoundData,
             firstAttack: firstAttackData.attacker,
             firstDefend: firstAttackData.deffender,
+            rHpP1: firstAttackData.remainingHp,
             secondAttack: secondAttackData.attacker,
-            secondDefend: secondAttackData.deffender
+            secondDefend: secondAttackData.deffender,
+            rHpP2: secondAttackData.remainingHp
         }
         this.rounds++;
-        // console.log('Round data: ', this.roundLog);
-        // console.log('');
 
         this.notifyObservers();
     }

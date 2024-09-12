@@ -16,7 +16,7 @@ export class RoundView{
     }
 
     update(roundInfo){
-        console.log(roundInfo);
+        // console.log(roundInfo);
         
         const updateText = `Round: ${roundInfo.round}
         First attack:
